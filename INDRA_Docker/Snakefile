@@ -1,0 +1,28 @@
+import nltk
+nltk.download('punkt')
+
+files = glob_wildcards("/workdir/input/{file}_output.txt").file
+
+print(len(files))
+print(files)
+
+rule all:
+	input:
+		expand('/workdir/output/processed/reach/{file}.json', file=files),
+		#expand('/workdir/output/processed/eidos/{file}.json', file=files)
+		
+rule reach:
+	input:
+		'/workdir/input/{file}_output.txt'
+	output:
+		'/workdir/output/processed/reach/{file}.json'
+	script:
+		'/workdir/scripts/get_reach_stmts.py'
+
+rule eidos:
+	input:
+		'/workdir/input/{file}_output.txt'
+	output:
+		'/workdir/output/processed/eidos/{file}.json'
+	script:
+		'/workdir/scripts/get_eidos_stmts.py'
