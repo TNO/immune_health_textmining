@@ -57,5 +57,7 @@ def filter_network(network):
     # Save statements to picklefile
 
 
-assemble_corpus.dump_statements(denoised_set, network + "_denoised_pickle")
-assemble_corpus.dump_statements(noise_set, network + "_noise_pickle")
+    assemble_corpus.dump_statements(denoised_set, network + "_denoised_pickle")
+    assemble_corpus.dump_statements(noise_set, network + "_noise_pickle")
+
+filter_network(network)
