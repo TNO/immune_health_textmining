@@ -7,7 +7,7 @@ network = "Birth"
 # network = "Late_gestational_period"
 # network = "Mid_gestational_period"
 # network = "Newborn"
-
+# network = "3B"
 
 def filter_network(network):
     # Load INDRA statements from pickle file
